@@ -31,49 +31,23 @@ Built as a ground-up replacement for [gleditor](https://github.com/1ay1/gleditor
 
 ## Features
 
-<table>
-<tr>
-<td width="50%">
+#### 🔮 Real-time preview
+Renders to FBO via OpenGL 4.5 DSA — 60fps locked with vsync, or uncapped. Zero UI compositing overhead.
 
-**🔮 Real-time preview**
-- Renders to FBO via OpenGL 4.5 DSA
-- 60fps locked with vsync, or uncapped
-- Zero UI compositing overhead
+#### ✏️ Code editor
+GLSL syntax highlighting · 209-item autocomplete · live error markers with line numbers · debounced recompilation (~300ms)
 
-**✏️ Code editor**
-- GLSL syntax highlighting
-- 209-item autocomplete
-- Live error markers with line numbers
-- Debounced recompilation (~300ms)
+#### 🎨 Shadertoy compatible
+Paste any `mainImage()` shader and it runs. Full uniform support: `iTime`, `iResolution`, `iMouse`, `iDate`, `iFrame`, `iTimeDelta`.
 
-**🎨 Shadertoy compatible**
-- Paste any `mainImage()` shader
-- Full uniform support: `iTime`, `iResolution`, `iMouse`, `iDate`, `iFrame`, `iTimeDelta`
-- Sign-encoded `iMouse` button state
+#### 🔁 Multipass rendering
+BufferA–D + Image pipeline with ping-pong FBOs for feedback effects. Cross-buffer channel reads via `//!channel` directives.
 
-</td>
-<td width="50%">
+#### 📑 Multi-tab workflow
+Independent compile state per tab · session persistence across restarts · save/load `.glsl` files with native dialogs · 10 built-in templates
 
-**🔁 Multipass rendering**
-- BufferA–D + Image pipeline
-- Ping-pong FBOs for feedback effects
-- Cross-buffer channel reads
-- `//--- BufferA ---` section markers
-
-**📑 Multi-tab workflow**
-- Independent compile state per tab
-- Session persistence across restarts
-- Save/load `.glsl` files with native dialogs
-- 10 built-in shader templates
-
-**⚙️ Configurable**
-- VSync toggle + framerate cap (0–240)
-- Three view modes (Split / Editor / Preview)
-- All settings persist to JSON
-
-</td>
-</tr>
-</table>
+#### ⚙️ Configurable
+VSync toggle · framerate cap (0–240) · three view modes (Split / Editor / Preview) · all settings persist to JSON
 
 <p align="center">
   <img src="assets/screenshot-templates.png" alt="Template picker with 10 built-in shaders" width="100%"/>
