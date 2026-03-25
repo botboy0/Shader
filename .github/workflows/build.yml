@@ -28,6 +28,7 @@ jobs:
             mingw-w64-x86_64-cmake
             mingw-w64-x86_64-ninja
             mingw-w64-x86_64-sdl3
+            zip
 
       - name: Configure
         run: cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
@@ -51,7 +52,7 @@ jobs:
           cp build/libwinpthread-1.dll release/Magnetar/
           cp LICENSE release/Magnetar/
           cp README.md release/Magnetar/
-          cd release && 7z a -tzip ../Magnetar-Windows-x64.zip Magnetar/
+          cd release && zip -r ../Magnetar-Windows-x64.zip Magnetar/
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
