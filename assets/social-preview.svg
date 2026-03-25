@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" width="1280" height="640">
+  <defs>
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f9fafb"/>
+      <stop offset="25%" stop-color="#06b6d4" stop-opacity="0.9"/>
+      <stop offset="55%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+      <stop offset="15%" stop-color="#8b5cf6"/>
+      <stop offset="35%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#d946ef"/>
+      <stop offset="65%" stop-color="#06b6d4"/>
+      <stop offset="85%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="ambientGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="textFill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+    <filter id="softBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="4"/></filter>
+    <filter id="coreBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="8"/></filter>
+    <filter id="wideBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="14"/></filter>
+    <clipPath id="ringBack"><rect x="0" y="240" width="460" height="230"/></clipPath>
+    <clipPath id="ringFront"><rect x="0" y="0" width="460" height="240"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="640" fill="#0a0a0f"/>
+
+  <!-- Star field -->
+  <circle cx="100" cy="80" r="1" fill="#f9fafb" opacity="0.3"/>
+  <circle cx="350" cy="50" r="0.8" fill="#06b6d4" opacity="0.25"/>
+  <circle cx="900" cy="70" r="1.1" fill="#f9fafb" opacity="0.35"/>
+  <circle cx="1100" cy="45" r="0.7" fill="#d946ef" opacity="0.2"/>
+  <circle cx="1200" cy="120" r="0.9" fill="#f9fafb" opacity="0.3"/>
+  <circle cx="80" cy="550" r="0.8" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="500" cy="590" r="1" fill="#f9fafb" opacity="0.25"/>
+  <circle cx="1150" cy="560" r="0.9" fill="#06b6d4" opacity="0.2"/>
+
+  <!-- Magnetar icon (left side) -->
+  <g transform="translate(230, 320)">
+    <ellipse cx="0" cy="0" rx="160" ry="160" fill="url(#ambientGlow)"/>
+
+    <!-- Back ring -->
+    <g clip-path="url(#ringBack)" transform="translate(-230,-320)">
+      <ellipse cx="230" cy="325" rx="140" ry="42" fill="none" stroke="url(#ringGrad)" stroke-width="12" opacity="0.3" filter="url(#wideBlur)"/>
+      <ellipse cx="230" cy="325" rx="140" ry="42" fill="none" stroke="url(#ringGrad)" stroke-width="5" opacity="0.5" filter="url(#softBlur)"/>
+      <ellipse cx="230" cy="325" rx="140" ry="42" fill="none" stroke="url(#ringGrad)" stroke-width="3" opacity="0.7"/>
+    </g>
+
+    <!-- Core -->
+    <circle cx="0" cy="0" r="50" fill="url(#coreGlow)" filter="url(#wideBlur)"/>
+    <circle cx="0" cy="0" r="32" fill="url(#coreGlow)" filter="url(#coreBlur)"/>
+    <circle cx="0" cy="0" r="20" fill="#f9fafb" opacity="0.95"/>
+    <circle cx="0" cy="0" r="26" fill="url(#coreGlow)"/>
+    <circle cx="0" cy="0" r="10" fill="#ffffff"/>
+
+    <!-- Front ring -->
+    <g clip-path="url(#ringFront)" transform="translate(-230,-320)">
+      <ellipse cx="230" cy="325" rx="140" ry="42" fill="none" stroke="url(#ringGrad)" stroke-width="16" opacity="0.2" filter="url(#wideBlur)"/>
+      <ellipse cx="230" cy="325" rx="140" ry="42" fill="none" stroke="url(#ringGrad)" stroke-width="7" opacity="0.5" filter="url(#softBlur)"/>
+      <ellipse cx="230" cy="325" rx="140" ry="42" fill="none" stroke="url(#ringGrad)" stroke-width="3.5" opacity="0.9"/>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <text x="780" y="290" font-family="'SF Mono','Fira Code','JetBrains Mono','Cascadia Code',monospace" font-size="72" font-weight="700" fill="url(#textFill)" text-anchor="middle" letter-spacing="6">MAGNETAR</text>
+
+  <!-- Subtitle -->
+  <text x="780" y="340" font-family="'SF Mono','Fira Code','JetBrains Mono','Cascadia Code',monospace" font-size="18" fill="#6b7280" text-anchor="middle" letter-spacing="6">GLSL SHADER EDITOR</text>
+
+  <!-- Feature pills -->
+  <text x="780" y="400" font-family="'SF Mono','Fira Code','JetBrains Mono',monospace" font-size="13" fill="#6b7280" text-anchor="middle" letter-spacing="2">OpenGL 4.5  ·  Shadertoy  ·  Multipass  ·  Real-time</text>
+</svg>
