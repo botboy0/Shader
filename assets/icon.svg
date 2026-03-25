@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Core star glow -->
+    <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f9fafb"/>
+      <stop offset="25%" stop-color="#06b6d4" stop-opacity="0.9"/>
+      <stop offset="55%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+    
+    <!-- Accretion ring gradient -->
+    <linearGradient id="ringGrad" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+      <stop offset="15%" stop-color="#8b5cf6"/>
+      <stop offset="35%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#d946ef"/>
+      <stop offset="65%" stop-color="#06b6d4"/>
+      <stop offset="85%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+    </linearGradient>
+    
+    <!-- Outer ambient glow -->
+    <radialGradient id="ambientGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.25"/>
+      <stop offset="60%" stop-color="#0a0a0f" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Soft blur for glows -->
+    <filter id="softBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+    </filter>
+    <filter id="coreBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12"/>
+    </filter>
+    <filter id="wideBlur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="20"/>
+    </filter>
+    
+    <!-- Ring back half clip (behind the star) -->
+    <clipPath id="ringBack">
+      <rect x="0" y="256" width="512" height="256"/>
+    </clipPath>
+    
+    <!-- Ring front half clip (in front of the star) -->
+    <clipPath id="ringFront">
+      <rect x="0" y="0" width="512" height="256"/>
+    </clipPath>
+  </defs>
+  
+  <!-- Void background -->
+  <rect width="512" height="512" rx="80" fill="#0a0a0f"/>
+  
+  <!-- Ambient glow -->
+  <ellipse cx="256" cy="256" rx="220" ry="220" fill="url(#ambientGlow)"/>
+  
+  <!-- Back half of accretion ring (behind star) — glow layer -->
+  <g clip-path="url(#ringBack)">
+    <ellipse cx="256" cy="262" rx="195" ry="58" fill="none" stroke="url(#ringGrad)" stroke-width="18" opacity="0.3" filter="url(#wideBlur)"/>
+    <ellipse cx="256" cy="262" rx="195" ry="58" fill="none" stroke="url(#ringGrad)" stroke-width="8" opacity="0.5" filter="url(#softBlur)"/>
+    <ellipse cx="256" cy="262" rx="195" ry="58" fill="none" stroke="url(#ringGrad)" stroke-width="4" opacity="0.7"/>
+  </g>
+  
+  <!-- Star core — outer glow -->
+  <circle cx="256" cy="256" r="70" fill="url(#coreGlow)" filter="url(#wideBlur)"/>
+  
+  <!-- Star core — mid glow -->
+  <circle cx="256" cy="256" r="45" fill="url(#coreGlow)" filter="url(#coreBlur)"/>
+  
+  <!-- Star core — bright center -->
+  <circle cx="256" cy="256" r="28" fill="#f9fafb" opacity="0.95"/>
+  <circle cx="256" cy="256" r="36" fill="url(#coreGlow)"/>
+  
+  <!-- Star core — hot white pip -->
+  <circle cx="256" cy="256" r="14" fill="#ffffff"/>
+  
+  <!-- Front half of accretion ring (in front of star) — glow layer -->
+  <g clip-path="url(#ringFront)">
+    <ellipse cx="256" cy="262" rx="195" ry="58" fill="none" stroke="url(#ringGrad)" stroke-width="22" opacity="0.25" filter="url(#wideBlur)"/>
+    <ellipse cx="256" cy="262" rx="195" ry="58" fill="none" stroke="url(#ringGrad)" stroke-width="10" opacity="0.5" filter="url(#softBlur)"/>
+    <ellipse cx="256" cy="262" rx="195" ry="58" fill="none" stroke="url(#ringGrad)" stroke-width="5" opacity="0.9"/>
+  </g>
+  
+  <!-- Bright highlight on ring near star (left and right edges of core) -->
+  <circle cx="215" cy="250" r="6" fill="#06b6d4" opacity="0.6" filter="url(#softBlur)"/>
+  <circle cx="297" cy="250" r="6" fill="#d946ef" opacity="0.6" filter="url(#softBlur)"/>
+</svg>

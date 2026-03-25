@@ -1,0 +1,3 @@
+// Magnetar application icon
+// ID 1 is the default icon Windows uses for the executable
+1 ICON "../assets/magnetar.ico"

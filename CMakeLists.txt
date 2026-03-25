@@ -73,6 +73,12 @@ add_executable(magnetar
     src/shader/multipass_pipeline.cpp
     src/shader/multipass_parser.cpp
 )
+
+# --- Embed application icon on Windows ---
+if(WIN32)
+    target_sources(magnetar PRIVATE src/magnetar.rc)
+endif()
+
 target_include_directories(magnetar PRIVATE src external)
 target_link_libraries(magnetar PRIVATE SDL3::SDL3 glad imgui imgui_color_text_edit OpenGL::GL)
 
