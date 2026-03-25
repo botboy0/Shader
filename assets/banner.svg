@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.4"/>
+      <stop offset="40%" stop-color="#d946ef" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="star" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f9fafb" stop-opacity="1"/>
+      <stop offset="20%" stop-color="#06b6d4" stop-opacity="0.8"/>
+      <stop offset="60%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#0a0a0f" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accretion" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="20%" stop-color="#8b5cf6" stop-opacity="0.6"/>
+      <stop offset="40%" stop-color="#06b6d4"/>
+      <stop offset="60%" stop-color="#d946ef"/>
+      <stop offset="80%" stop-color="#8b5cf6" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="textFill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#d946ef"/>
+    </linearGradient>
+    <filter id="blur">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+    <filter id="softglow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8"/>
+    </filter>
+  </defs>
+  
+  <!-- Deep void background -->
+  <rect width="900" height="320" fill="#0a0a0f"/>
+  
+  <!-- Subtle star field -->
+  <circle cx="120" cy="40" r="1" fill="#f9fafb" opacity="0.4"/>
+  <circle cx="340" cy="25" r="0.8" fill="#f9fafb" opacity="0.3"/>
+  <circle cx="520" cy="60" r="1.2" fill="#06b6d4" opacity="0.3"/>
+  <circle cx="680" cy="35" r="0.7" fill="#f9fafb" opacity="0.5"/>
+  <circle cx="800" cy="55" r="1" fill="#d946ef" opacity="0.2"/>
+  <circle cx="80" cy="280" r="0.9" fill="#f9fafb" opacity="0.3"/>
+  <circle cx="250" cy="290" r="1.1" fill="#8b5cf6" opacity="0.2"/>
+  <circle cx="760" cy="270" r="0.8" fill="#f9fafb" opacity="0.4"/>
+  <circle cx="600" cy="285" r="1" fill="#06b6d4" opacity="0.2"/>
+  <circle cx="420" cy="20" r="0.6" fill="#f9fafb" opacity="0.6"/>
+  <circle cx="200" cy="70" r="0.5" fill="#d946ef" opacity="0.3"/>
+  <circle cx="700" cy="80" r="0.7" fill="#8b5cf6" opacity="0.3"/>
+  <circle cx="50" cy="140" r="0.9" fill="#f9fafb" opacity="0.2"/>
+  <circle cx="860" cy="160" r="1" fill="#06b6d4" opacity="0.15"/>
+  <circle cx="150" cy="200" r="0.6" fill="#f9fafb" opacity="0.35"/>
+  <circle cx="830" cy="230" r="0.8" fill="#d946ef" opacity="0.15"/>
+  
+  <!-- Central glow -->
+  <ellipse cx="450" cy="160" rx="300" ry="140" fill="url(#glow)"/>
+  
+  <!-- Accretion ring (behind star) -->
+  <ellipse cx="450" cy="170" rx="160" ry="22" fill="none" stroke="url(#accretion)" stroke-width="3" opacity="0.5" filter="url(#blur)"/>
+  <ellipse cx="450" cy="170" rx="160" ry="22" fill="none" stroke="url(#accretion)" stroke-width="1.5" opacity="0.8"/>
+  
+  <!-- Magnetar star core -->
+  <circle cx="450" cy="160" r="18" fill="url(#star)" filter="url(#softglow)"/>
+  <circle cx="450" cy="160" r="8" fill="#f9fafb"/>
+  <circle cx="450" cy="160" r="12" fill="url(#star)"/>
+  
+  <!-- Accretion ring (in front) -->
+  <path d="M 290 170 Q 370 148 450 148 Q 530 148 610 170" fill="none" stroke="url(#accretion)" stroke-width="2.5" opacity="0.7" filter="url(#blur)"/>
+  <path d="M 290 170 Q 370 148 450 148 Q 530 148 610 170" fill="none" stroke="url(#accretion)" stroke-width="1.2" opacity="0.9"/>
+  
+  <!-- Title -->
+  <text x="450" y="240" font-family="'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace" font-size="52" font-weight="700" fill="url(#textFill)" text-anchor="middle" letter-spacing="6">MAGNETAR</text>
+  
+  <!-- Subtitle -->
+  <text x="450" y="272" font-family="'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace" font-size="13" fill="#6b7280" text-anchor="middle" letter-spacing="8">GLSL SHADER EDITOR</text>
+  
+  <!-- Thin accent line -->
+  <line x1="320" y1="285" x2="580" y2="285" stroke="url(#accretion)" stroke-width="0.5" opacity="0.4"/>
+</svg>

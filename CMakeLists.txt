@@ -76,6 +76,11 @@ add_executable(magnetar
 target_include_directories(magnetar PRIVATE src external)
 target_link_libraries(magnetar PRIVATE SDL3::SDL3 glad imgui imgui_color_text_edit OpenGL::GL)
 
+# --- GUI subsystem on Windows (no console window) ---
+if(WIN32)
+    target_link_options(magnetar PRIVATE -mwindows)
+endif()
+
 # --- Copy runtime DLLs next to executable (MinGW builds) ---
 if(WIN32 AND MINGW)
     set(_MINGW_BIN_DIR "${CMAKE_FIND_ROOT_PATH}/bin")
